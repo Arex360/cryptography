@@ -2,8 +2,8 @@ POST http://localhost:5000/getData HTTP/1.1
 content-type: application/json
 
 {
-    "filename": ["b54596f8bcedb463a8c2ddd47e9d1796","746a48ca68cb66fa94598109fb493be0","2b2177903043ee5f177b4e1b55f70542","83b189bc57fd1753d85a82ef8fb94295"],
-    "reg": "superboy",
+    "filename": ["86318e52f5ed4801abe1d13d509443de","a83170b4de61c936ff8e99ca758dec0d","f46003d2d20d3d5a695f4ae1e7b7d0b9","cbde79904bb75b795c1b9193f9ffe52d","93eeedefe286ee5b731c12652873ae64"],
+    "reg": "ali5",
     "pass": "LetmeLogin1!",
     "name": "Owais",
     "cnic": "287283729387293",

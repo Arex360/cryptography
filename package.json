@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.2",
     "body-parser": "^1.19.0",
+    "cli-progress": "^3.9.1",
     "cors": "^2.8.5",
     "edit-json-file": "^1.6.2",
     "express": "^4.17.1",

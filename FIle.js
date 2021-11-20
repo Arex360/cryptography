@@ -1,6 +1,7 @@
 const fs = require('fs')
 const {exec,spawn} = require('child_process')
 const editJson = require('edit-json-file')
+const cliProgress = require('cli-progress')
 const createFile = ({filename,data})=>{
         fs.writeFile(`${filename}.json`,`
     {
@@ -26,24 +27,23 @@ const createFile = ({filename,data})=>{
 const getFile = ({filelist,response})=>{
     out = {}
     let length = filelist.length
-    console.log(`total lenght = ${length}`)
+    //console.log(`total lenght = ${length}`)
     for(let i = 0; i < length;i++){
         filelist[i] = filelist[i]+'.json' 
     }
+    const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.rect);
     let i = 0
     let getData = ()=>{
         exec(`python download.py --path ${filelist[i]}`,()=>{
-            console.log(i)
+            bar1.start(length-1,i)
             let file = require(`./${filelist[i]}`)
             exec(`del ${filelist[i]}`,()=>{
-                console.log(length)
                 i = i + 1
                 if(i == length){
                     console.log('done')
                    for(var key in file){
                        out[key] = file[key]
                    } 
-                   console.log(out)
                    response.send(out)
                 }else if(i > length){
                    return
@@ -59,6 +59,8 @@ const getFile = ({filelist,response})=>{
     }
     getData()
 }
+
+
 module.exports = {
     create: createFile,
     get: getFile
