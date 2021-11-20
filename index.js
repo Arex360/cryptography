@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const {PushData,SetData,ChainData} = require('./Database.js')
 const {Info} = require('./Info.js')
 const crypto = require('crypto')
-const {create} = require('./FIle.js')
+const {create,get} = require('./FIle.js')
 const editJson = require('edit-json-file')
 let file = editJson(`${__dirname}/key.json`)
 let superFile = editJson(`${__dirname}/superkey.json`)
@@ -14,6 +14,13 @@ app.use(bodyParser())
 app.use(cors())
 app.get('/',(req,res)=>{
     res.send('server is working')
+})
+app.post('/getData',(req,res)=>{
+    let filename = req.body.filename
+     get({
+         filelist: filename,
+         response: res
+     })
 })
 app.post('/register',(req,res)=>{
     const regNo = req.body.reg

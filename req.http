@@ -1,8 +1,9 @@
-POST http://localhost:5000/register HTTP/1.1
+POST http://localhost:5000/getData HTTP/1.1
 content-type: application/json
 
 {
-    "reg": "22872398",
+    "filename": ["b54596f8bcedb463a8c2ddd47e9d1796","746a48ca68cb66fa94598109fb493be0","2b2177903043ee5f177b4e1b55f70542","83b189bc57fd1753d85a82ef8fb94295"],
+    "reg": "superboy",
     "pass": "LetmeLogin1!",
     "name": "Owais",
     "cnic": "287283729387293",
